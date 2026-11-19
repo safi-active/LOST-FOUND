@@ -797,10 +797,11 @@ def bootstrap():
     init_db()
     print("[OK] MongoDB connected and indexes ensured.")
 
+# Initialize database for local and production environments
+bootstrap()
 
 if __name__ == "__main__":
     import threading, webbrowser
-    bootstrap()
 
     # Open the browser ~1 second after the server starts
     threading.Timer(
@@ -809,3 +810,4 @@ if __name__ == "__main__":
     ).start()
 
     app.run(debug=True, host="127.0.0.1", port=5000, use_reloader=False)
+
